@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "mode": "fail-closed",
+  "budgets": {
+    "maxEvidence": 12,
+    "maxWebSources": 6,
+    "maxRepositoryRefs": 5,
+    "maxExcerptChars": 1200,
+    "maxPageBytes": 350000,
+    "requestTimeoutSeconds": 20
+  },
+  "web": {
+    "enabled": true,
+    "httpsOnly": true,
+    "allowHosts": [],
+    "denyHosts": ["localhost", "127.0.0.1", "0.0.0.0", "::1"],
+    "denyPrivateNetworks": true,
+    "followSourceLinksOnly": true
+  },
+  "github": {
+    "enabled": true,
+    "readOnly": true,
+    "maxRecentCommits": 5,
+    "maxTreePaths": 500
+  },
+  "trust": {
+    "github.com": 0.85,
+    "api.github.com": 0.9,
+    "docs.github.com": 0.9,
+    "arxiv.org": 0.9,
+    "www.nist.gov": 0.95,
+    "nist.gov": 0.95,
+    "owasp.org": 0.9,
+    "default": 0.55
+  },
+  "untrustedContent": {
+    "detectPromptInjection": true,
+    "quarantineOnDetection": true,
+    "markers": [
+      "ignore previous instructions",
+      "ignore all previous instructions",
+      "system prompt",
+      "developer message",
+      "reveal your prompt",
+      "execute this command",
+      "run this command",
+      "send your api key",
+      "exfiltrate",
+      "disregard previous"
+    ]
+  },
+  "production": {
+    "write": false,
+    "merge": false,
+    "cutover": false,
+    "authorityMutation": false,
+    "humanGate": true
+  }
+}
